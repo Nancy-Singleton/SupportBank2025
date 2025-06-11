@@ -15,7 +15,7 @@ log4js.configure({
 
 const main = () => {
   const bank = new Bank();
-  processTransactionFile(bank, "data/DodgyTransactions2015.csv");
+  processTransactionFile(bank, "data/Transactions2013.json");
 
   while (true) {
     const userCommand = readlineSync.question("Enter a command (List All or List <name>): ");
