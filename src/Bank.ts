@@ -1,5 +1,8 @@
 import { Account } from "./Account";
 import { Transaction } from "./Transaction";
+import log4js from "log4js";
+
+const logger = log4js.getLogger('<filename>');
 
 export class Bank {
   accounts: Account[] = []
@@ -19,6 +22,7 @@ export class Bank {
   }
 
   processTransaction = (transaction: Transaction): void => {
+    logger.log(`Processing transaction: ${transaction.date.toFormat("dd/MM/yyyy")} - From: ${transaction.from}, To: ${transaction.to}, Amount: £${(transaction.amount / 100).toFixed(2)}`);
     const fromAccount = this.getAccount(transaction.from);
     const toAccount = this.getAccount(transaction.to);
 
