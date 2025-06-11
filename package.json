@@ -10,11 +10,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/luxon": "^3.6.2",
     "@types/node": "^24.0.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "csv-load-sync": "^2.3.1",
+    "luxon": "^3.6.1",
     "readline-sync": "^1.4.10"
   }
 }

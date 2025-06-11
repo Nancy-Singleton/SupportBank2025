@@ -15,6 +15,6 @@ export const listAccount = (bank: Bank, accountName: string) => {
   }
 
   account.transactions.forEach(transaction => {
-    console.log(`Date: ${transaction.date}, From: ${transaction.from}, To: ${transaction.to}, Narrative: ${transaction.narrative}, Amount: ${transaction.amount}`);
+    console.log(`Date: ${transaction.date.toFormat("dd/MM/yyyy")}, From: ${transaction.from}, To: ${transaction.to}, Narrative: ${transaction.narrative}, Amount: ${transaction.amount}`);
   });
 }
