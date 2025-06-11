@@ -23,6 +23,11 @@ export class Bank {
 
   processTransaction = (transaction: Transaction): void => {
     logger.log(`Processing transaction: ${transaction.date.toFormat("dd/MM/yyyy")} - From: ${transaction.from}, To: ${transaction.to}, Amount: £${(transaction.amount / 100).toFixed(2)}`);
+
+    if (isNaN(transaction.amount)) {
+      return;
+    }
+
     const fromAccount = this.getAccount(transaction.from);
     const toAccount = this.getAccount(transaction.to);
 
