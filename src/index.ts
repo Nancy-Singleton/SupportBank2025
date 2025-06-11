@@ -1,5 +1,8 @@
+import { readTransactionListFromFile } from "./FileReader";
+
 const main = () => {
-  console.log("Hello, World");
+  const transactions = readTransactionListFromFile("data/Transactions2014.csv");
+  console.log(transactions);
 }
 
 main();
