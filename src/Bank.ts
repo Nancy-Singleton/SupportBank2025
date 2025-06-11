@@ -4,8 +4,12 @@ import { Transaction } from "./Transaction";
 export class Bank {
   accounts: Account[] = []
 
+  getExistingAccount = (name: string): Account | undefined => {
+    return this.accounts.find(account => account.name === name);
+  }
+
   getAccount = (name: string): Account => {
-    const existingAccount = this.accounts.find(account => account.name === name);
+    const existingAccount = this.getExistingAccount(name);
     if (existingAccount) {
       return existingAccount;
     }

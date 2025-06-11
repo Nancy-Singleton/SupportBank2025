@@ -1,17 +1,20 @@
-import { processTransactionFile } from "./FileReader";
+import readlineSync from "readline-sync";
+import { processTransactionFile } from "./read-file-utils";
 import { Bank } from "./Bank";
+import { listAccount, listAll } from "./print-info-utils";
 
 const main = () => {
   const bank = new Bank();
   processTransactionFile(bank, "data/Transactions2014.csv");
 
-  bank.accounts.forEach(account => {
-    console.log(`Account: ${account.name}`);
-    console.log(`Balance: ${account.balance}`);
-    console.log("Transactions:");
-    console.log(account.transactions.length)
-    console.log("\n");
-  })
+  while (true) {
+    const userCommand = readlineSync.question("Enter a command (List All or List <name>): ");
+    if (userCommand.toLowerCase() === "list all") {
+      listAll(bank);
+    } else if (userCommand.toLowerCase().startsWith("list ")) {
+      listAccount(bank, userCommand.slice(5));
+    }
+  }
 }
 
 main();
